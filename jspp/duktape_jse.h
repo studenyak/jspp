@@ -10,5 +10,6 @@ namespace stood
 		DuktapeJSE(void);
 		~DuktapeJSE(void);
 		int eval(typeSourceCode& source_code);
+		int eval_from_file(const std::string& strFileName);
 	};
 }

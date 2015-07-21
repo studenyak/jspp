@@ -19,4 +19,12 @@ namespace stood
 		duk_destroy_heap(ctx);
 		return 0;
 	}
+
+	int DuktapeJSE::eval_from_file(const std::string& strFileName)
+	{
+		duk_context* ctx = duk_create_heap_default();
+		duk_eval_file(ctx, strFileName.c_str());
+		duk_destroy_heap(ctx);
+		return 0;
+	}
 }

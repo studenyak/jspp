@@ -11,6 +11,9 @@ using namespace stood;
 
 int eval_from_file(std::string& strArg)
 {
+	strArg.erase(0, std::string("--file=").size());
+	JavascriptEngine<DuktapeJSE> js_engine;
+	js_engine.eval_from_file(strArg);
 	return 0;
 }
 

@@ -14,6 +14,11 @@ namespace stood
 			return engine.eval(source_code);
 		}
 
+		int eval_from_file(const std::string& strFileName)
+		{
+			return engine.eval_from_file(strFileName);
+		}
+
 	private:
 		jse engine;
 	};
