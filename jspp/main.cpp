@@ -9,13 +9,31 @@
 
 using namespace stood;
 
-int eval_from_file(std::string& strArg)
+int eval_from_file(std::string& strFileName)
 {
-	strArg.erase(0, std::string("--file=").size());
 	JavascriptEngine<DuktapeJSE> js_engine;
-	js_engine.eval_from_file(strArg);
+	js_engine.eval_from_file(strFileName);
 	return 0;
 }
+
+int eval_from_file_with_params(int argc, char* argv[])
+{
+	std::string strFileName(argv[1]);
+	strFileName.erase(0, std::string("--file=").size());
+
+	if(argc == 2)
+		return eval_from_file(strFileName);
+
+	std::string strFunction(argv[2]);
+	strFunction.erase(0, std::string("--function=").size());
+
+	std::string strJsonParams(argv[3]);
+	strJsonParams.erase(0, std::string("--json=").size());
+
+	JavascriptEngine<DuktapeJSE> js_engine;
+	js_engine.eval_with_params(strFileName, strFunction, strJsonParams);
+}
+
 
 int eval_source(std::string& strArg)
 {
@@ -38,11 +56,11 @@ int main(int argc, char* argv[])
 {
 	std::cout << "Try my javascript engine" << std::endl;
 
-	if( argc == 2  )
+	if( argc >= 2  )
 	{
 		std::string strArg(argv[1]);
 		if(strArg.find(std::string("--file=")) != std::string::npos)
-			return eval_from_file(strArg);
+			return eval_from_file_with_params(argc, argv);
 		else if(strArg.find(std::string("--source=")) != std::string::npos)
 			return eval_source(strArg);
 		else
