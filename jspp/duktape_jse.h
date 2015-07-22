@@ -17,6 +17,9 @@ namespace stood
 											const std::string& strFunction,
 											const std::string& strJsonParams);
 
+		const std::string& analyzeSNSS(const std::string& strJsFileName,
+										const std::string& strSNSSFileName,
+										const std::string& strJsonParams);
 	private:
 		std::string m_strResult;
 	};
