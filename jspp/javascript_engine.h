@@ -19,10 +19,9 @@ namespace stood
 			return engine.eval_from_file(strFileName);
 		}
 
-		int eval_with_params(
-			const std::string& strFileName,
-			const std::string& strFunction,
-			const std::string& strJsonParams)
+		const std::string& eval_with_params(const std::string& strFileName,
+											const std::string& strFunction,
+											const std::string& strJsonParams)
 		{
 			return engine.eval_with_params(strFileName, strFunction, strJsonParams);
 		}

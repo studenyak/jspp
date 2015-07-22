@@ -13,9 +13,11 @@ namespace stood
 
 		int eval_from_file(const std::string& strFileName);
 
-		int eval_with_params(
-			const std::string& strFileName,
-			const std::string& strFunction,
-			const std::string& strJsonParams);
+		const std::string& eval_with_params(const std::string& strFileName,
+											const std::string& strFunction,
+											const std::string& strJsonParams);
+
+	private:
+		std::string m_strResult;
 	};
 }

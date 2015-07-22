@@ -20,7 +20,8 @@ function main() {
         "int": 123,
         "float": 1.23,
         "null": null,
-        "Array": [1,2, 1.23, "string"]};
+        "Array": [1, 2, 1.23, "string"]
+    };
     hi("sdfas", "asdfasd", json_obj);
 }
 

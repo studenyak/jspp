@@ -32,8 +32,8 @@ int eval_from_file_with_params(int argc, char* argv[])
 
 	JavascriptEngine<DuktapeJSE> js_engine;
 	js_engine.eval_with_params(strFileName, strFunction, strJsonParams);
+	return 0;
 }
-
 
 int eval_source(std::string& strArg)
 {
